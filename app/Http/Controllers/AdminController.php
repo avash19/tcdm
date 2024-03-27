@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\HelperController;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use App\Models\Attendance;
 
@@ -97,5 +96,18 @@ class AdminController extends Controller
   public function destroy(User $employee){
     $employee->delete();
     return redirect('admin/employee')->with('msg','Employee deleted successully');
+  }
+  
+  // TO GET TOTAL ATTENDANCE
+  public function show(){
+    $users=User::where('role','employee')->get();
+    $attendances=Attendance::all();
+    return view('admin.employee.attendance',compact(['attendances','users']));
+  }
+
+  // TO GET TOTAL ATTENDANCE OF ONE EMPLOYEE
+  public function showOne(User $employee){
+    $attendances=Attendance::where('userId',$employee->id)->get();
+    return view('admin.employee.attendance',compact(['attendances','employee']));
   }
 }

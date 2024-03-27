@@ -84,6 +84,10 @@ Route::middleware(['auth','employeeAuth'])->group(function(){
 
 });
 
-Route::get('test',function($message){
-	event(new App\Events\NotificationAlert($message));
-});
+// Route::get('test',function($message){
+// 	event(new App\Events\NotificationAlert($message));
+// });
+
+// Route::get(uri:'/', action: 'App\Http\PusherController@index');
+// Route::post(uri:'/', broadcast: 'App\Http\PusherController@broadcast');
+// Route::post(uri:'/', receive: 'App\Http\PusherController@receive');

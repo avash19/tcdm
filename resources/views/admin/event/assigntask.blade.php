@@ -14,6 +14,7 @@
                 </ol>
               </nav>
             </div>
+            
             <div class="col-lg-6 col-5 text-right">
               <!-- <a href="{{url('events/create')}}" class="btn btn-sm btn-neutral">New</a> -->
             </div>

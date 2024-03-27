@@ -24,6 +24,7 @@ class OfficeHourController extends Controller
       'startTime'=>'date_format:H:i|required',
       'endTime'=>'required|date_format:H:i',
     ]);
+
     $checkOfficeHour=OfficeHour::count();
     $officeTimeData=$request->only('startTime','endTime');
     OfficeHour::create($officeTimeData);
@@ -45,7 +46,7 @@ class OfficeHourController extends Controller
 
     $officeTimeData=$request->only('startDate','endDate','startTime','endTime');
 
-    $officehour->update($officeTimeData);
+    $officehour->update($officeTimeData); 
     return redirect('officehours')->with('msg','Office Time updated Successfully');
   }
 

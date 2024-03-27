@@ -76,7 +76,7 @@
                   <a class="dropdown-item" href="{{url('events/1/message')}}">
                     <i class="fas fa-check-circle"></i> Assigned Task
                   </a>
-                  <a class="dropdown-item" href="{{url('events/2/message')}}">
+                 <a class="dropdown-item" href="{{url('events/2/message')}}">
                     <i class="fas fa-times-circle"></i> Unassigned Task
                   </a>
                 </div>
@@ -163,7 +163,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ni ni-ungroup"></i>
+                <i class="fa fa-comments"></i>
               </a>
             </li>
           </ul>

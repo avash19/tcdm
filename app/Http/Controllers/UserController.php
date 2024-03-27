@@ -217,6 +217,7 @@ class UserController extends Controller
               $event->messageId=null;
               $event->messageStatus='unassigned';	
             }
+
             if($event->commentId==$userId){
               $event->commentId=null;
               $event->commentStatus='unassigned';	
@@ -242,10 +243,10 @@ class UserController extends Controller
     return $user->name;
   }
 
-  // public funtion Tasks(User $user){
+  //\ public funtion Tasks(User $user){
   //   $user = User::find(1); // Assuming you have a user with ID 1
   //   $taskName = 'Prepare Monthly Report';
-  //   $dueDate = '2024-03-15';
+   //   $dueDate = '2024-03-15';
 
   //   // Trigger the notification
   //   $user->notify(new Tasks($taskName, $dueDate));
