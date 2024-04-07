@@ -140,4 +140,5 @@ class AttendanceController extends Controller
 		else
 			abort(401);
 	}
+
 }

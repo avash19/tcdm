@@ -50,29 +50,48 @@ class User extends Authenticatable
     ];
 
     //RELATION BETWEEN USER AND TASK-COMMENTID
-    public function comments(){
-        return $this->hasMany(Event::class,'commentId');
+    public function comments()
+    {
+        return $this->hasMany(Event::class, 'commentId');
     }
 
-     //RELATION BETWEEN USER AND TASK-MESSAGING
-     public function messages(){
-        return $this->hasMany(Event::class,'messageId');
+    //RELATION BETWEEN USER AND TASK-MESSAGING
+    public function messages()
+    {
+        return $this->hasMany(Event::class, 'messageId');
     }
 
-     //RELATION BETWEEN USER AND TASK-CALENDERSPREADSHEET
-     public function calenderSpreads(){
-        return $this->hasMany(Event::class,'calendarSpreadId');
+    //RELATION BETWEEN USER AND TASK-CALENDERSPREADSHEET
+    public function calenderSpreads()
+    {
+        return $this->hasMany(Event::class, 'calendarSpreadId');
     }
 
-      //RELATION BETWEEN USER AND TASK-FOLLOWUPS
-      public function followUps(){
-        return $this->hasMany(Event::class,'followUpId');
+    //RELATION BETWEEN USER AND TASK-FOLLOWUPS
+    public function followUps()
+    {
+        return $this->hasMany(Event::class, 'followUpId');
     }
 
     //RELATION BETWEEN USER AND ATTENDANCE
-    public function attendances(){
-        return $this->hasMany(Attendance::class,'userId');
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class, 'userId');
     }
 
-    
+    // app/User.php
+
+    /**
+     * A user can have many messages
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+
+
+
 }

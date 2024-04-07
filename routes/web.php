@@ -84,6 +84,15 @@ Route::middleware(['auth','employeeAuth'])->group(function(){
 
 });
 
+// routes/web.php
+
+Auth::routes();
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+
+
 // Route::get('test',function($message){
 // 	event(new App\Events\NotificationAlert($message));
 // });
@@ -91,3 +100,7 @@ Route::middleware(['auth','employeeAuth'])->group(function(){
 // Route::get(uri:'/', action: 'App\Http\PusherController@index');
 // Route::post(uri:'/', broadcast: 'App\Http\PusherController@broadcast');
 // Route::post(uri:'/', receive: 'App\Http\PusherController@receive');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

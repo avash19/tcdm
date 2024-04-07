@@ -161,6 +161,8 @@ class UserController extends Controller
     return view('employee.dashboard',compact('todayAttendance','totalCommentTask','totalMessageTask','totalCalendarSpread','totalfollowUp','unAssignedTasks'));
   }
 
+
+
   //===================== LOGOUT USER ====================
 	public function logout(){
     Auth::logout();
@@ -170,7 +172,7 @@ class UserController extends Controller
   //===================== GET PROFILE DATA ===============
   public function profile(){
     return view('profile');  
-  }
+  } 
 
   //===================== TO UPDATE PROFILE DATA =========
   public function updateProfile(Request $request){
@@ -180,13 +182,43 @@ class UserController extends Controller
       'phoneNumber'=>"min:10|unique:users,phoneNumber,$id",
       'name'=>'min:3',
     ]);
-    
+   
     $profileData=$request->only('name','email','phoneNumber');
 
     User::where('id',$id)->update($profileData);
 
     return redirect('profile')->with('msg','Profile Updated successfully :)');
   }
+
+
+  // public function checkIn(Request $request){
+  //   $userId=Auth::user()->id;
+  //   $checkIn=date('Y-m-d H:i:s');
+  //   $attendances=HelperController::getTodayAttendanceForAdmin();
+  //   if(count($attendances)>0){
+  //     foreach($attendances as $attendance){
+  //       if($attendance->$userId==$userId){
+  //         $attendance->checkIn=$checkIn;
+  //         $attendance->save();
+  //       }
+  //     }
+  //   }
+  // }
+
+  // public funtion checkOut(Request $request){
+  //   $userId=Auth::user()->id;
+  //   $checkOut=date('Y-m-d H:i:s');
+  //   $attendances=HelperController::getTodayAttendanceForAdmin();
+  //   if(count($attendances)>0){
+  //     foreach($attendances as $attendance){
+  //       if($attendance->$userId==$userId){
+  //         $attendance->checkOut=$checkOut;
+  //         $attendance->save();
+  //       }
+  //     }
+  //   }
+  // }
+  
 
   public function checkActive(){
     date_default_timezone_set('Asia/Kathmandu');
@@ -243,7 +275,7 @@ class UserController extends Controller
     return $user->name;
   }
 
-  //\ public funtion Tasks(User $user){
+// public funtion Tasks(User $user){
   //   $user = User::find(1); // Assuming you have a user with ID 1
   //   $taskName = 'Prepare Monthly Report';
    //   $dueDate = '2024-03-15';

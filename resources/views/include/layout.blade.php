@@ -81,7 +81,7 @@
                   </a>
                 </div>
               </li>
-              
+                            
               
               <li class="nav-item">
                 <a class="nav-link" id='attendance' href="{{url('attendances/foradmin')}}">
